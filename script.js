@@ -24,41 +24,40 @@ function generatePassword() {
 // generate password
 // display the password to the page
 // 
-var numcharacters = window.prompt('Enter a number between 8 and 128'); {
 
-if (numcharacters <= 8 && numcharacters >= 128);{
+var numcharacters = window.prompt('Enter a number between 8 and 128'); 
+numcharacters = parseInt(numcharacters)
+if (numcharacters <= 8 && numcharacters >= 128){
 console.log(numcharacters);
 
-} if (numcharacters > 8 && numcharacters < 128); {
+} else if (numcharacters > 8 && numcharacters < 128){
   numcharacters = window.prompt('Enter a number between 8 and 128');
 
-
-} if (!numcharacters); {
+} else if (!numcharacters){
 numcharacters = window.prompt('Enter a number between 8 and 128');
 }
-}
 
-message = alert ('Click Ok to confirm using lowercase');
+var lowercaseMessage = confirm ('Click Ok to confirm using lowercase');
+if (!lowercaseMessage)
 console.log( lowercase);
 
-
-message = alert ('Click Ok to confirm using Uppercase');
+var uppercaseMessage = confirm ('Click Ok to confirm using Uppercase');
 console.log( uppercase);
 
-message = alert ('Click Ok to confirm using Numbers');
+var numbersMessage = confirm ('Click Ok to confirm using Numbers');
 console.log( numbers);
 
-message = alert ('Click Ok to confirm using Special characters');
+var symbolsMessage = confirm ('Click Ok to confirm using Special characters');
 console.log(symbols);
 
-message = confirm ('Are you sure you want to generate new password')
+var message = confirm ('Are you sure you want to generate new password')
 if (!message) 
-prompt('Enter a number between 8 and 128');;
+prompt('Enter a number between 8 and 128');
 
 
 
-return 'somePassword';
-};
+return '$5UMtmls4';
+}
 
 
 
