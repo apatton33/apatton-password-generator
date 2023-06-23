@@ -12,9 +12,13 @@ function writePassword() {
 
 var numbers = [1,2,3,4,5,6,7,8,9,0]
 var symbols = ["@", "#", "$"];
-var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",'R',"S","T","U","V","W","X","Y","Z"];
-var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-
+var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",'R',"S","T","U","V","W","X","Y","Z"];
+var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+function pickRandom(arr) {
+ var index = Math.floor(Math.random() *arr.length);
+ console.log(index,arr[index])
+ return arr[index]
+}
 function generatePassword() {
   // prompt user ask user for number of character 8-128
 // if value is not between 8 and 128 or not a number,
@@ -27,37 +31,64 @@ function generatePassword() {
 
 var numcharacters = window.prompt('Enter a number between 8 and 128'); 
 numcharacters = parseInt(numcharacters)
-if (numcharacters <= 8 && numcharacters >= 128){
+
+if (numcharacters && numcharacters >= 8 && numcharacters <= 128){
 console.log(numcharacters);
 
-} else if (numcharacters > 8 && numcharacters < 128){
-  numcharacters = window.prompt('Enter a number between 8 and 128');
-
-} else if (!numcharacters){
-numcharacters = window.prompt('Enter a number between 8 and 128');
+} else {
+  return ('Try Again');
 }
 
 var lowercaseMessage = confirm ('Click Ok to confirm using lowercase');
-if (!lowercaseMessage)
-console.log( lowercase);
+var userPassWord = []
+if (lowercaseMessage){
+console.log(lowerCase);
+userPassWord.push(pickRandom(lowerCase))
+}
+
+
 
 var uppercaseMessage = confirm ('Click Ok to confirm using Uppercase');
-console.log( uppercase);
+
+if (uppercaseMessage){
+  console.log(upperCase);
+  userPassWord.push(pickRandom(upperCase))
+}
 
 var numbersMessage = confirm ('Click Ok to confirm using Numbers');
-console.log( numbers);
 
-var symbolsMessage = confirm ('Click Ok to confirm using Special characters');
-console.log(symbols);
-
-var message = confirm ('Are you sure you want to generate new password')
-if (!message) 
-prompt('Enter a number between 8 and 128');
-
-
-
-return '$5UMtmls4';
+if (numbersMessage){
+  console.log(numbers);
+  userPassWord.push(pickRandom(numbers))
 }
+
+  
+var symbolsMessage = confirm ('Click Ok to confirm using Special characters');
+
+if (numbersMessage){
+  console.log(symbolsMessage);
+  userPassWord.push(pickRandom(symbols))
+}
+console.log(userPassWord)
+
+
+
+
+
+//var userpassword = '';
+// TODO write for loop to generate password.
+
+
+//for(let i = 0; i < 5; i++)
+for (let index = userPassWord.length; index < numcharacters; index++) {
+  userPassWord.push(pickRandom(lowerCase))
+  console.log(userPassWord);
+}
+
+
+
+return userPassWord.join('');
+};
 
 
 
